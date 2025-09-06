@@ -5,10 +5,10 @@ class IncioPAM{
     }
     inicio(){
         this.contenido.innerHTML=
-         `<p><br>Carlos Alberto Mendoza Hernández <br> 
+         `<p><br>Carlos Alberto \nMendoza Hernández <br> 
          Grupo: TIID-215 <br>
          Materia: Desarrollo Móvil</p> <br><br>
-         Da clic en algún botón de arriba para ver el contenido`;
+         Da clic en algún botón de arriba para ver el contenido</p>`;
     }
     Reglamento(){
         this.contenido.innerHTML=
@@ -36,7 +36,8 @@ class IncioPAM{
         <br><br>15.Cualquier situación no prevista en el presente reglamento pasar directamente con la dirección del programa educativo.
         <br><br>16. El día destinado a entrega de calificaciones todos los estudiantes deben estar presentes, ese día se entregarán exámenes y se brindará retroalimentación
         <br><br>17.Este reglamento entra en vigor después de que se firme o se acepte por la mayoría de los estudiantes asistentes a la primera sesión de la materia, una vez firmado o aceptado por el
-        50% más el jefe de grupo, es vigente para todo alumno inscrito en el curso aunque no esté presente en la primera sesión.</p>`;
+        50% más el jefe de grupo, es vigente para todo alumno inscrito en el curso aunque no esté presente en la primera sesión.
+        </p>`;
     }
     Lineamientos(){
         this.contenido.innerHTML= `
