@@ -1,4 +1,4 @@
-let nomber="Armando";
+let nombre="Armando";
 const edad=25;
 nombre= "Ana María";
 
