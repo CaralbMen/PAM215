@@ -10,6 +10,14 @@ function verificarUsuario(usuario){
         },2000);
     });
 }
+
+let promesa= new Promise((reslve, reject)=>{
+    setTimeout(()=>{
+        
+    },2000);
+}
+
+);
 //Usa .then() y .cathc() para manejar el resultado
 verificarUsuario("admin")
     .then(res=> console.log(res))

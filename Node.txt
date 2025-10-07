@@ -1,0 +1,1 @@
+Me quedé en el comando npm install -g expo-cli. No cargó el internet
