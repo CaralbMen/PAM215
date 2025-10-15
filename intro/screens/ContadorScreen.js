@@ -9,6 +9,9 @@ import React,{useState} from 'react';
   2. Main:
     Zona de componentes para poner lo que se va a ver en la pantalla
 */
+function volver(){
+  
+}
 export default function App() {
   const[contador, setContador]= useState(0);
   return (
@@ -24,6 +27,7 @@ export default function App() {
         <Button color='orange' title='Reiniciar' onPress={()=>setContador(0)}></Button>
       </View>
       <StatusBar style="auto" />
+       <Button color='red' title='Volver' onPress={()=>}></Button>
     </View>
   );
 }
