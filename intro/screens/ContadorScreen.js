@@ -27,7 +27,7 @@ export default function App() {
         <Button color='orange' title='Reiniciar' onPress={()=>setContador(0)}></Button>
       </View>
       <StatusBar style="auto" />
-       <Button color='red' title='Volver' onPress={()=>}></Button>
+       {/* <Button color='red' title='Volver' onPress={()=>}></Button> */}
     </View>
   );
 }
