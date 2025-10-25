@@ -7,49 +7,49 @@ export default function TextInputAlert(){
   const mostrarAlerta=()=>{
     if(nombre.trim()==='' || pwd.trim()==='' || telefono.trim()===''){
       Alert.alert('Error.\nFavor de llenar todo los campos en tu dispositivo móvil');
-      alert('Error.\nFavor de llenar los campos en tu Laptop');
+      alert('Error.\nFavor de llenar todo los campos en tu dispositivo móvil');
     }else{
-      Alert.alert('Llenaste los datos correctamente en tu móvil\n\n'+
+      alert('Llenaste los datos correctamente en tu móvil\n\n'+
         `Nombre: ${nombre}\nPassword: ${pwd}\nTeléfono: ${telefono}`);
-      alert(`Llenaste los datos correctamente en tu web\n\n`+
+      Alert.alert(`Llenaste los datos correctamente en tu web\n\n`+
         `Nombre: ${nombre}\nPassword: ${pwd}\nTeléfono: ${telefono}`);
     }
   };
-    return (
-      <View style={styles.container}>
-        <Text style={styles.titulo}>TextInput & Alert</Text>
-        <Text style={styles.etiqueta}>Nombre: </Text>
-        <TextInput
-          style={styles.input}
-          placeholder='Escribe tu nombre aquí'
-          value={nombre}
-          onChangeText={setNombre}
-        />
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titulo}>TextInput & Alert</Text>
+      <Text style={styles.etiqueta}>Nombre: </Text>
+      <TextInput
+        style={styles.input}
+        placeholder='Escribe tu nombre aquí'
+        value={nombre}
+        onChangeText={setNombre}
+      />
 
-        <Text style={styles.etiqueta}>Password: </Text>
-        <TextInput
-          style={styles.input}
-          placeholder='Escribe tu contraseña aquí'
-          secureTextEntry={true}
-          value={pwd}
-          onChangeText={setPwd}
-        />
-        <Text style={styles.etiqueta}>Teléfono</Text>
-        <TextInput
-          style={styles.input}
-          placeholder='Escribe tu telefono aqui'
-          keyboardType='phone-pad'
-          value={telefono}
-          onChangeText={setTelefono}
-        />
+      <Text style={styles.etiqueta}>Password: </Text>
+      <TextInput
+        style={styles.input}
+        placeholder='Escribe tu contraseña aquí'
+        secureTextEntry={true}
+        value={pwd}
+        onChangeText={setPwd}
+      />
+      <Text style={styles.etiqueta}>Teléfono</Text>
+      <TextInput
+        style={styles.input}
+        placeholder='Escribe tu telefono aqui'
+        keyboardType='phone-pad'
+        value={telefono}
+        onChangeText={setTelefono}
+      />
 
-        <Button
-        color={'#4695e0ff'}
-          title='Presioname'
-          onPress={mostrarAlerta}
-        />
-      </View>
-    )
+      <Button
+      color={'#4695e0ff'}
+        title='Presioname'
+        onPress={mostrarAlerta}
+      />
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
