@@ -7,7 +7,7 @@ import BackroundImage from './BackroundImage'
 import ScrollView from './ScrollVieww'
 import ActivityIndicator from './ActivityIndicatorr'
 import FlatList from './FlatListt'
-import Modal from './Modal'
+import Modall from './Modall'
 import Bottom from './Bottom'
 import Repaso1Screen from './Repaso1Screen'
 
@@ -29,7 +29,7 @@ export default function MenuScreen(){
         case 'FlatList':
             return <FlatList/>
         case 'Modal':
-            return <Modal/>
+            return <Modall/>
         case 'Bottom':
             return <Bottom/>
         case 'Repaso1':
