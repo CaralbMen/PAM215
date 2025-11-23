@@ -1,22 +1,16 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 //import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Ionicons} from '@expo/vector-icons';
-import {NavigationContainer} from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import 'react-native-gesture-handler';
-import DetallesUsuario from './detallesUsuario';
 
-const Stack= createNativeStackNavigator();
-
-export default function Profile({navigation}) {
+export default function DetallesUsuario({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.iconRow}>
         <Ionicons name="person-outline" size={28} color="green"/>
-        <Text style={styles.title}>Perfil de usuario</Text>
+        <Text style={styles.title}>Detalles de usuario</Text>
       </View>
-      <Pressable style={styles.button} onPress={()=>navigation.navigate('Detalles')}>
-        <Text style={styles.textButton}>Detalles de Usuario</Text>
+      <Pressable style={styles.button} onPress={()=>navigation.navigate('Profile')}>
+        <Text style={styles.textButton}>Ir a Profile</Text>
       </Pressable>
     </View>
   )
@@ -39,7 +33,7 @@ const styles= StyleSheet.create({
         marginLeft: 10,
         color: 'green',
     },
-    button:{
+     button:{
         paddingVertical: 12,
         paddingHorizontal: 30,
         borderRadius: 8,
@@ -51,7 +45,7 @@ const styles= StyleSheet.create({
     },
     textButton:{
       fontSize: 20,
-      color: 'blue',
+      color: 'red',
       fontWeight: 'bold',
     },
 });
