@@ -1,12 +1,12 @@
 import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
-import IonIcons from 'react-native-vector-icons/IonIcons';
+//import Ionicons from 'react-native-vector-icons/Ionicons';
+import {Ionicons} from '@expo/vector-icons';
 
 export default function Profile() {
   return (
     <View style={styles.container}>
       <View style={styles.iconRow}>
-        <IonIcons name="person-outline" size={28} color="green"/>
+        <Ionicons name="person-outline" size={28} color="green"/>
         <Text style={styles.title}>Perfil de usuario</Text>
       </View>
     </View>

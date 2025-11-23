@@ -1,12 +1,13 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
-import IonIcons from 'react-native-vector-icons/IonIcons';
-
+//import Ionicons from 'react-native-vector-icons/Ionicons';
+//import Ionicons from 'react-native-vector-icons/Ionicons';
+import {Ionicons} from '@expo/vector-icons';
 export default function Settings({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.iconRow}>
-        <IonIcons name="person-outline" size={28} color="blue"/>
+        <Ionicons name="settings-outline" size={28} color="blue"/>
         <Text style={styles.title}>Configuracion de usuario</Text>
       </View>
     </View>

@@ -1,8 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Iconicons} from '@expo/vector-icons';
+import {Ionicons} from '@expo/vector-icons';
 
 import Home from './screens/home';
 import Profile from './screens/profile';
@@ -19,13 +17,13 @@ export default function App() {
           tabBarIcon:({color,size})=>{
             let iconName;
             if(route.name==='Home'){
-              iconName='Home';
+              iconName='home-outline';
             }else if(route.name==='Profile'){
-              iconName='Profile';
+              iconName='person-outline';
             }else{
-              iconName='Settings';
+              iconName='settings-outline';
             }
-            return <Iconicons name={iconName} size={size} color={color}/>
+            return <Ionicons name={iconName} size={size} color={color}/>
           },
           tabBarActiveTinColor: '#007BFF',
           tabBarInactiveTintColor: 'gray',
