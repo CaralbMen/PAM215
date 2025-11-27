@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
-import { View, Text, TextInput, TouchableOpacity, FlatList,StyleSheet, Alert,ActivityIndicator,Platform, Appearance } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, FlatList,StyleSheet, Alert,ActivityIndicator,Platform, Appearance, Pressable } from 'react-native';
 import { UsuarioController } from '../controllers/UsuarioController';
 
 const controller=new UsuarioController();
@@ -10,7 +10,8 @@ export default function InsertUsuarioScreen() {
   const [nombre, setNombre] = useState('');
   const [loading, setLoading] = useState(true);
   const [guardando, setGuardando] = useState(false);
-
+  const [nombreAEditar, setNombreAEditar]= useState('');
+  const [idAEditar, setIdAEditar]= useState(null);
 
   const cargarUsuarios= useCallback(async()=>{
     try{
@@ -50,21 +51,62 @@ export default function InsertUsuarioScreen() {
         setGuardando(false);
       }
   };
+  const formModificar=(item)=>{
+    setIdAEditar(item.id);
+    setNombreAEditar(item.nombre);
+
+  }
+  const guardarEditado= async()=>{
+    try{
+      await controller.modificarUsuario(idAEditar,nombreAEditar);
+      Alert.alert("Se actualizo el usuairo", `Nuevo nombre: ${nombreAEditar},`);
+      setIdAEditar(null); 
+      setNombreAEditar('');
+    }catch(error){
+      Alert.alert('Error: ', error.message);
+    }
+  }
   const renderUsuario= ({item, index})=>(
     <View style={styles.userItem}>
       <View style={styles.userNumber}>
         <Text style={styles.userNumberText}>{index+1}</Text>
       </View>
       <View style={styles.userInfo}>
-        <Text style={styles.userName}>{item.nombre}</Text>
-        <Text style={styles.userId}>ID: {item.id}</Text>
-        <Text style={styles.userDate}>
-          {new Date(item.fechaCreacion).toLocaleDateString('es-MX', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          })}
-        </Text>
+        {idAEditar===item.id?(
+          <>
+          <Text>Edita el nombre: </Text>
+          <TextInput
+            style={styles.input}
+            value={nombreAEditar}
+            onChangeText={setNombreAEditar}
+          />
+          <Pressable onPress={guardarEditado}>
+            <Text style={{color: 'blue'}}>Guardar</Text>
+          </Pressable>
+          <Pressable onPress={()=>setIdAEditar(null)}>
+            <Text style={{color: 'red'}}>Cancelar</Text>
+          </Pressable>
+          </>
+        ):(
+          <>
+            <Text style={styles.userName}>{item.nombre}</Text>
+            <Text style={styles.userId}>ID: {item.id}</Text>
+            <Text style={styles.userDate}>
+              {new Date(item.fechaCreacion).toLocaleDateString('es-MX', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </Text>
+            <Pressable style={styles.btnEliminar} onPress={()=> controller.eliminarUsuario(item.id)}>
+              <Text style={styles.btnEliminarText}>Eliminar</Text>
+            </Pressable>
+
+            <Pressable onPress={()=>formModificar(item)}>
+              <Text>Modificar</Text>
+            </Pressable>
+          </>
+        )}
       </View>
     </View>
   )
@@ -152,6 +194,9 @@ export default function InsertUsuarioScreen() {
 }
 
 const styles = StyleSheet.create({
+  btnEliminarText:{
+    color: 'red',
+  },
   container: {
     flex: 1,
     backgroundColor: '#f5f5f5',

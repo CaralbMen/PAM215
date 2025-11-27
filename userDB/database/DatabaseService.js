@@ -51,5 +51,36 @@ class DatabaseService{
             };
         }
     }
+    async modificar(id, nombre){
+        if(Platform.OS==='web'){
+            const usuarios= await this.getAll();
+            const indice= usuarios.findIndex(u=>u.id===id);
+            if(indice!==-1){
+                usuarios[indice].nombre= nombre;
+                localStorage.setItem(this.storageKey, JSON.stringify(usuarios));
+                return usuarios[indice];
+            }
+            return null;
+        }else{
+            await this.db.runAsync(
+                'UPDATE usuarios SET nombre= ? WHERE id= ?',
+                [nombre, id]
+            );
+            return {id, nombre};
+        }
+    }
+    async eliminar(id){
+        if(Platform.OS==='web'){
+            const usuarios= await this.getAll();
+            const filtro= usuarios.filter(u=>u.id!==id);
+            localStorage.setItem(this.storageKey, JSON.stringify(filtro));
+            return true;
+        }else{
+            await this.db.runAsync(
+                'DELETE FROM usuarios where id= ?',
+                id
+            );
+        }
+    }
 }   
 export default new DatabaseService();
